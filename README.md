@@ -14,13 +14,24 @@ This project explores the use of a True Random Number Generator (TRNG) to improv
 
 Conventional PRNGs are algorithmically generated and therefore reproducible. A TRNG, on the other hand, derives randomness from physical entropy sources (e.g., thermal noise, system jitter, or sensor noise), resulting in non-deterministic and high-entropy random numbers, ideal for cryptographic applications such as image security.
 
-🔬 Methodology
+# 🔬 Methodology
 
 - Entropy Source Collection: Capture true randomness using hardware or software-based physical noise.
 - Randomness Conditioning: Apply statistical conditioning (as per NIST standards) to remove bias.
 - Key Generation: Generate encryption keys using TRNG output.
 - Encryption Algorithm: Apply XOR-based or diffusion–confusion encryption schemes on the image.
+- Decryption: Reconstruct the image using the same TRNG-generated key sequence.
+- Performance Analysis: Evaluate results using NPCR, UACI, histogram analysis, and correlation plots.
 
-Decryption: Reconstruct the image using the same TRNG-generated key sequence.
+🧰 Tech Stack
 
-Performance Analysis: Evaluate results using NPCR, UACI, histogram analysis, and correlation plots.
+- Languages: Python
+- Libraries: NumPy, OpenCV, Matplotlib, Secrets, Random, PIL
+- Standards Used: NIST SP 800-90B (Entropy validation)
+- Hardware (optional): System jitter or microphone noise source for TRNG
+
+🧪 Experimental Results
+
+- High NPCR (>99%) and UACI (>33%) values prove strong diffusion.
+- Low correlation between adjacent pixels confirms randomness.
+- Entropy values close to 8 indicate near-perfect randomness.
